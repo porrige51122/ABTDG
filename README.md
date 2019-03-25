@@ -16,7 +16,7 @@ Extremely Detailed Description of the game:
 
 ## How to run
 ### Single Player
- * Go to ./myGame in your console
+ * Go to this directory in your console
  * Type `npm install`
  * Type `npm start`
  * The page will automatically open
