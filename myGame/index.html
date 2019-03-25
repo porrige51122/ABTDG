@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="HandheldFriendly" content="True">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- <link rel="Stylesheet" href="build/css/style.css"> -->
+  <title>
+    <%= htmlWebpackPlugin.options.title %>
+  </title>
+
+  <!-- <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"> -->
+</head>
+
+<body>
+
+  <div class="pageloader is-primary is-active" id="load">
+    <span class="title" Style="color:white" ;>Loading...</span>
+  </div>
+
+  <div id="content" class="columns is-mobile" style="display:none;">
+    <div class="column">
+      <canvas id="canvas" width="300" height="300"></canvas>
+    </div>
+
+
+    <div class="column">
+
+      <div class="nes-container is-dark with-title is-rounded is-centered" style="margin-right: 5%;">
+        <img alt="ABTDG logo" src="./images/ABTDG-logo-trans.svg" draggable="false" width="300">
+        <div id='Game'>
+          <div id="noTowSelected">
+            <div class="nes-container is-dark with-title is-rounded is-centered" style="display:flex;">
+              <div class"column" style="flex: 33%;">
+                <button id="tower1" class="nes-btn">Circle</button>
+                <p>$ 30</p>
+                <button id="tower2" class="nes-btn">Triangle</button>
+                <p>$ 40</p>
+              </div>
+              <div class"column" style="flex: 33%;">
+                <button id="tower4" class="nes-btn">Square</button>
+                <p>$ 50</p>
+                <button id="tower3" class="nes-btn">Pentagon</button>
+                <p>$ 60</p>
+              </div>
+              <div class"column" style="flex: 33%;">
+                <button id="tower5" class="nes-btn">Mouse</button>
+                <p>$ 80</p>
+                <button id="intrestbut" class="nes-btn">Income +3</button>
+                <p>$ 50</p>
+              </div>
+            </div>
+          </div>
+          <div id="towSelected" class="hide">
+            <button id="cancel" class="nes-btn is-error">Cancel</button>
+          </div>
+          <div class="column" style="display:flex;">
+            <div class="nes-container is-dark with-title is-rounded is-centered" style="flex: 33%;">
+              <p class="title"> Money </p>
+              <p>
+                $<span id="money"></span>
+              </p>
+            </div>
+            <div class="nes-container is-dark with-title is-rounded is-centered" style="flex: 33%;">
+              <p class="title"> Lives </p>
+              <span id="lives"></span>
+            </div>
+            <div class="nes-container is-dark with-title is-rounded is-centered" style="flex: 33%;">
+              <p class="title"> Income </p>
+              <p>
+                ^<span id="income"></span>
+              </p>
+            </div>
+          </div>
+          <div id="towerSel" class="hide">
+            <div class="column" style="display:flex;">
+              <div class="nes-container is-dark with-title is-rounded is-centered" style="flex: 50%;">
+                <button id="upgrade" class="nes-btn">Upgrade</button>
+                <p>
+                  Cost: $
+                  <span id="upgradePrice">0</span>
+                </p>
+              </div>
+              <div class="nes-container is-dark with-title is-rounded is-centered" style="flex: 50%;">
+                <button id="sell" class="nes-btn is-error">Sell</button>
+                <p>
+                  $
+                  <span id="sellPrice">0</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="GameOver" class="hide">
+          <button onClick="history.go(0)" class="nes-btn">Play again?</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+<footer>
+  <!-- <script src="build/js/wall-spritesheet.bundle.js"></script> -->
+  <!-- <script src="build/js/app.bundle.js"></script> -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <meta name="owner" content="Royal Holloway, University of London">
+  <meta name="description" content="&lt;game&gt; multiplayer tower defence game for CS1813 coursework">
+  <meta name="author" content="William Santos, Henry Russell, Porridge, Sebstaine">
+  <meta name="copyright" content="thisname.rocks">
+  <meta name="url" content="https://thisname.rocks/">
+</footer>
+
+</html>
