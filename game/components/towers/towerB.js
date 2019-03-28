@@ -22,6 +22,7 @@ class TowerB extends Tower {
       this.range += 1;
       this.rof /= 2;
       this.upgradePrice += this.upgradeRate;
+      this.upgradeRate *= 2;
       return true;
     }
     return false;

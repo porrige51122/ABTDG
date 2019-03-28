@@ -1,16 +1,5 @@
 import Vector from '../components/vector';
-import EnemyA from '../components/enemies/enemyA';
-import EnemyB from '../components/enemies/enemyB';
-import EnemyC from '../components/enemies/enemyC';
-import EnemyD from '../components/enemies/enemyD';
-import EnemyE from '../components/enemies/enemyE';
-import EnemyF from '../components/enemies/enemyF';
-import EnemyG from '../components/enemies/enemyG';
-import EnemyH from '../components/enemies/enemyH';
-import EnemyI from '../components/enemies/enemyI';
-import EnemyJ from '../components/enemies/enemyJ';
-import EnemyK from '../components/enemies/enemyK';
-import EnemyL from '../components/enemies/enemyL';
+import Enemy from '../components/enemy';
 
 import Explosion from '../components/explosion';
 import images from '../objects/images';
@@ -20,36 +9,6 @@ import Spritesheet from './spritesheets';
 import notification from '../notification'
 class Wave {
   constructor(canvas, ctx, path, wallSize) {
-    this.waves = [
-      [0,0,0], // wave 1
-      [0,1,0], // wave 2
-      [2,0,2], // etc..
-      [0,1,0,1,0,1],
-      [2,2],
-      [1,1,1,1,1,1,1,1,1,1],
-      [2,1,1,2,1,1],
-      [2,2,2,2,2,2],
-      [1,3,3,1],
-      [0,0,0,0,3],
-      [1,1,1,3].
-      [2,2,3]
-      [3,3,3],
-      [4,4,4]
-      [4,4,4,4,4],
-      [5,5,5,5],
-      [4,5,4,4],
-      [6,2,2,6,6,2,2],
-      [7,7,7],
-      [3,3,3,3,3,3,3,3],
-      [7,7,9,7,7],
-      [7,7,8,8,8,7,7,7]
-      [9,9,9],
-      [8,8,7,7]
-      [3,3,3,3,3,3,3,3,3],
-      [5,6,7,5,6,7],
-      [10,10,10,10,10],
-      [11,11,11,11],
-    ];
     this.canvas = canvas;
     this.ctx = ctx;
     this.path = path;
@@ -73,37 +32,24 @@ class Wave {
     //
     if (Date.now() - this.startTime > 5000) {
       this.waveText = false;
-      for (let i = 0; i < this.waves[this.waveNo - 1].length; i++) {
+      for (let i = 0; i < (this.waveNo/5) * 5 * Math.random(); i++) {
         let vel = new Vector(
           (this.path[1][0] - this.path[0][0]) * this.wallSize,
           (this.path[1][1] - this.path[0][1]) * this.wallSize
         );
         let pos = new Vector(this.path[0][0] * this.wallSize, this.path[0][1] * this.wallSize);
         let size = new Vector(this.wallSize, this.wallSize);
-        if (this.waves[this.waveNo - 1][i] == 0)
-          this.enemies.push(new EnemyA(this.canvas, this.ctx, pos, vel, size));
-        else if (this.waves[this.waveNo - 1][i] == 1)
-          this.enemies.push(new EnemyB(this.canvas, this.ctx, pos, vel, size));
-        else if (this.waves[this.waveNo - 1][i] == 2)
-          this.enemies.push(new EnemyC(this.canvas, this.ctx, pos, vel, size));
-        else if (this.waves[this.waveNo - 1][i] == 3)
-          this.enemies.push(new EnemyD(this.canvas, this.ctx, pos, vel, size));
-        else if (this.waves[this.waveNo - 1][i] == 4)
-          this.enemies.push(new EnemyE(this.canvas, this.ctx, pos, vel, size));
-        else if (this.waves[this.waveNo - 1][i] == 5)
-          this.enemies.push(new EnemyF(this.canvas, this.ctx, pos, vel, size));
-        else if (this.waves[this.waveNo - 1][i] == 6)
-          this.enemies.push(new EnemyG(this.canvas, this.ctx, pos, vel, size));
-        else if (this.waves[this.waveNo - 1][i] == 7)
-          this.enemies.push(new EnemyH(this.canvas, this.ctx, pos, vel, size));
-        else if (this.waves[this.waveNo - 1][i] == 8)
-          this.enemies.push(new EnemyI(this.canvas, this.ctx, pos, vel, size));
-        else if (this.waves[this.waveNo - 1][i] == 9)
-          this.enemies.push(new EnemyJ(this.canvas, this.ctx, pos, vel, size));
-        else if (this.waves[this.waveNo - 1][i] == 10)
-          this.enemies.push(new EnemyK(this.canvas, this.ctx, pos, vel, size));
-        else
-          this.enemies.push(new EnemyL(this.canvas, this.ctx, pos, vel, size));
+        this.enemies.push(new Enemy(
+          this.canvas,
+          this.ctx,
+          pos,
+          vel,
+          size,
+          new Spritesheet(images.enemy),
+          [0, Math.floor(Math.random() * ((this.waveNo/2) > 12 ? 12 : this.waveNo/2))],
+          Math.random() * (0.0001 * this.waveNo) + 0.005,
+          (this.waveNo * this.waveNo) * 2 + 10
+        ));
       }
       this.timerStart = true;
       this.waveNo++;

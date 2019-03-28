@@ -22,6 +22,7 @@ class TowerA extends Tower {
       this.damage += 5;
       this.spriteIndex[1]++;
       this.upgradePrice += this.upgradeRate;
+      this.upgradeRate *= 2;
       return true;
     }
     return false;

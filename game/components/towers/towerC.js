@@ -21,6 +21,7 @@ class TowerC extends Tower {
       this.range += 1;
       this.spriteIndex[1]++;
       this.upgradePrice += this.upgradeRate;
+      this.upgradeRate *= 2;
       return true;
     }
     return false;

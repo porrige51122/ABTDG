@@ -285,7 +285,7 @@ class CVS extends Entity {
           let canUpgrade = false;
           if (this.money >= tower.upgradePrice) {
             if (tower.upgrade()) {
-              this.money -= tower.upgradePrice - tower.upgradeRate;
+              this.money -= tower.upgradePrice - (tower.upgradeRate/2);
               document.getElementById('upgradePrice').innerHTML = tower.upgradePrice;
               document.getElementById('sellPrice').innerHTML = (tower.price + (tower.upgradeRate * tower.spriteIndex[1])) * 0.8;
               canUpgrade = true;

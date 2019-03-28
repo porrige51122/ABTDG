@@ -62,6 +62,7 @@ class TowerUser extends Sprite {
         this.beam.changeColour(colours.flat_white);
       this.beam.damage *= 2;
       this.upgradePrice += this.upgradeRate;
+      this.upgradeRate *= 2;
       return true;
     }
     return false;
