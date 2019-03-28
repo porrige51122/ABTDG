@@ -20,7 +20,6 @@ class TowerD extends Tower {
     if (this.spriteIndex[1] < images.tower.rows - 1) {
       this.spriteIndex[1]++;
       this.damage += 20;
-      this.upgradePrice += 20;
       this.upgradePrice += this.upgradeRate;
       return true;
     }

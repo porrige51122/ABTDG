@@ -7,7 +7,7 @@ import Spritesheet from '../../types/spritesheets';
 class EnemyE extends Enemy {
   constructor(canvas, ctx, pos, vel, size) {
     let spd = 0.005;
-    let health = 40;
+    let health = 80;
     super(canvas, ctx, pos, vel, size, new Spritesheet(images.enemy), [0, 4], spd, health)
   }
 }

@@ -21,7 +21,6 @@ class TowerB extends Tower {
       this.spriteIndex[1]++;
       this.range += 1;
       this.rof /= 2;
-      this.upgradePrice += 20;
       this.upgradePrice += this.upgradeRate;
       return true;
     }

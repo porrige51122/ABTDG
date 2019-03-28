@@ -4,7 +4,7 @@ import Vector from '../vector'
 import images from '../../objects/images';
 import Spritesheet from '../../types/spritesheets';
 
-class EnemyC extends Enemy {
+class EnemyD extends Enemy {
   constructor(canvas, ctx, pos, vel, size) {
     let spd = 0.02;
     let health = 40;
@@ -12,4 +12,4 @@ class EnemyC extends Enemy {
   }
 }
 
-export default EnemyC;
+export default EnemyD;
