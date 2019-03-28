@@ -61,13 +61,11 @@ class CVS extends Entity {
       this.interactions = [];
       this.buildListeners();
 
-      // Waves Start
-
       a.path.splice(0, 0, [8,-2]);
       a.path.forEach((path) => console.log(path));
 
       this.waves = new Wave(this.canvas, this.ctx, a.path, this.wallSize);
-      this.waves.startWave();
+      this.wavesStart = false;
       this.loop();
     });
   }
@@ -114,6 +112,7 @@ class CVS extends Entity {
     const BUTT7 = document.getElementById('intrestbut');
     const BUTT8 = document.getElementById('sell');
     const BUTT9 = document.getElementById('cancel');
+    const BUTT10 = document.getElementById('startWaves');
 
 
     this.moveTower = new TowerMove(
@@ -329,6 +328,11 @@ class CVS extends Entity {
       document.getElementById('towSelected').classList.add("hide");
       this.towerPressed = false;
     });
+    BUTT10.addEventListener("click", () => {
+      this.waves.startWave();
+      this.wavesStart = true;
+      document.getElementById('GameStart').classList.add("hide");
+    })
 
   }
 
@@ -366,7 +370,7 @@ class CVS extends Entity {
         this.income = false;
         this.incomeTime = Date.now();
       } else {
-        if (this.incomeTime + 5000 < Date.now()) {
+        if (this.incomeTime + 5000 < Date.now() && this.wavesStart) {
           this.money += this.intrest;
           this.income = true;
         }
@@ -391,7 +395,8 @@ class CVS extends Entity {
       this.interactions.forEach((interaction) => {
         interaction.update(this.waves.enemies);
       })
-      this.waves.update(this.towers);
+      if (this.wavesStart)
+        this.waves.update(this.towers);
     }
   }
 
@@ -422,7 +427,8 @@ class CVS extends Entity {
       this.walls.forEach(sprite => sprite.draw());
       // this.enemywalls.forEach(sprite => sprite.draw());
       this.towers.forEach(sprite => sprite.draw());
-      this.waves.draw();
+      if (this.wavesStart)
+        this.waves.draw();
       this.moveTower.draw();
     }
   }
