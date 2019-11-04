@@ -20,6 +20,7 @@ Extremely Detailed Description of the game:
  * Type `npm install`
  * Type `npm start`
  * The page will automatically open
+ * Or you can visit [porrige51122.github.io/ABTDG/](https://porrige51122.github.io/ABTDG/) for the singleplayer game
  
 ### Multi Player
  * Go to our website [abtdg.fun](http://abtdg.fun)
