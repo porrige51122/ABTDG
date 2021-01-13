@@ -1,3 +1,9 @@
+## Credits
+ * Aidan Smithers - Designer - Lead Frontend Developer
+ * William Santos - Lead Backend Developer
+ * Henry Russell - Frontend Developer
+ * Sebastian Farrelly - Developer & Tester
+
 # ABTDG - Another Bad Tower Defence Game
 CS1830 - Computing Laboratory (Games) -
 Group 22 -
@@ -79,8 +85,4 @@ Extremely Detailed Description of the game:
 # Planned Features
  * Enemies will create a custom path to the goal then follow it
 
-## Credits
- * Aidan Smithers - Designer - Lead Frontend Developer
- * William Santos - Lead Backend Developer
- * Henry Russell - Frontend Developer
- * Sebastian Farrelly - Developer & Tester
+
